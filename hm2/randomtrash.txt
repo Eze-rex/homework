@@ -1,0 +1,1621 @@
+mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions 
+
+mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions 
+
+mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions 
+
+mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions 
+
+mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions 
+
+mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions 
+
+mkdir: cannot create directory 'example': Permission denied
+Asked 2 years, 1 month ago
+Active 7 months ago
+Viewed 17k times
+
+4
+
+
+1
+I am trying to create a new directory.
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Munch@DESKTOP-J0U63F0 MINGW64 /
+$ mkdir example
+mkdir: cannot create directory ‘example’: Permission denied
+I expected no error, and to be able to then type ls again to view the new directory listing, and see "example" as one of the directories. See in video Prework: Git Bash Part 1 at 02:05. Instead I am getting the permission denied error. Why is my permission denied? And how do I correct this?
+
+git-bash
+Share
+Follow
+edited Jun 12 '20 at 16:14
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+asked Aug 9 '19 at 3:32
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+Add a comment
+3 Answers
+
+6
+
+MINGW64 means a Git for Windows installation.
+
+'/' means "where Git is installed (which could be in C:\Program Files\Git, and C:\Program Files itself could be restricted in term of modification)
+
+Try:
+
+cd
+mkdir example
+cd will take you to $HOME, which is by default /c/Users/<YourLogin>: you can write there.
+
+Share
+Follow
+answered Aug 9 '19 at 4:27
+
+VonC
+1.1m450450 gold badges37533753 silver badges44134413 bronze badges
+In %USERPROFILE% (from the Windows side)? – 
+Peter Mortensen
+ Jun 12 '20 at 16:59 
+Add a comment
+
+2
+
+Upon speaking with a coder friend of mine, apparently on Windows 10, on my new laptop my primary account is not automatically set to run programs as administrator by default. I simply had to right click on the program and click "run as administrator". Once I did that, I was able to use the mkdir input as desired.
+
+See this link for more info on the subject of default running programs as administrator: https://www.cnet.com/how-to/always-run-a-program-in-administrator-mode-in-windows-10/
+
+Thanks all for your answers/input!
+
+Share
+Follow
+answered Aug 13 '19 at 5:36
+
+Munchinator6354
+6111 gold badge11 silver badge55 bronze badges
+1
+My answer stands: work in c/Users/<YourLogin> and you won't need to run as administrator. Running as admin is akin to runningas root on Linux: it is considered as dangerous and bad practice. – 
+VonC
+ Aug 13 '19 at 6:00
+Or install Git Bash outside C:\Program Files (x86) (e.g. to avoid the spaces in the absolute paths). E.g. in C:\PRG\Git. Though with the security caveats. – 
+Peter Mortensen
+ Jun 12 '20 at 17:04 
+Add a comment
+
+0
+
+Check the permission of the folder where you start Git Bash. The error showed that you did not have permission to perform that. There are some solutions to this.
+
+Use cd to change your directory to other hard drive rather than C (or may be to C:/path/to/your/user)
+Change the permission of current folder to full control (use pwd command to show your current directory) ...
+Share
+Follow
+edited Jun 12 '20 at 16:17
+
+Peter Mortensen
+28.8k2121 gold badges9595 silver badges123123 bronze badges
+answered Aug 9 '19 at 3:56
+
+Hùng Nguyễn
+38144 silver badges1616 bronze badges
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged git-bash or ask your own question.
+The Overflow Blog
+Podcast 374: How valuable is your screen name?
+Featured on Meta
+Review queue workflows - Final release
+Please welcome Valued Associates: #958 - V2Blast & #959 - SpencerG
+Congrats to Bhargav Rao on 500k handled flags!
+Outdated Answers: accepted answer is now unpinned on Stack Overflow
+
+48 people chatting
+Related
+0
+GIT permission denied (public key)
+11
+"permission denied" while removing git directory
+2
+Permission denied when pushing file to remote
+1
+Vimdiff is not working in Git Bash, says E97: Cannot create diffs
+2
+Git-bash WIndows : /usr/bin/bash: can't find configuration file /usr/local/etc/profile.global; exiting."
+2
+Git add errors: Could not open directory: Permission Denied
+1
+Git Bash in Windows not working (continuous permission denied error)
+173
+"Permission Denied" trying to run Python on Windows 10
+1
+Cannot install pylint in Git Bash on Windows (Windows Store)
+2
+Permission denied problem using pip3 install command
+Hot Network Questions
+Iterate through non-empty words from text files
+How do I diagnose random UI slowness and slow ssh connection initiation for several minutes after a reboot?
+Can I complete the ArriveCAN form at the last minute at the Canadian border when queuing to enter Canada?
+How to unlearn incorrect muscle memory
+Airline messed up my upcoming connection, travel agent wants to charge fees for rebooking. What to do?
+Do healing spells harm undead in Starfinder?
+In the etymology of 'physics', what is the ultimate Greek root?
+Curly braces with subscript and superscript
+Why can I change the the reserved blocks on a read only mounted ext4 filesystem?
+How to indicate flutter technique in a score?
+How were smallpox vaccines enforced in the US?
+Why are ball bearings so common in the Forgotten Realms?
+Barehanded vs direwolf
+{Landa vs Zhu Chen, Bad Wiessee, 2006} Lichess giving a +4.7 to white. Why?
+Where can I find lorenz curve of countries?
+How do I determine if my cassette is worn
+How to go to beginning and end of line in ordinary text boxes
+Why might one of these decoupling capacitor schematics also include an inductor and the other not?
+How should I mount conduit to my wood-laped siding?
+Pre-Modern Shipping Containers?
+Why would the PLAAF buy additional Su-35 fighters from Russia?
+Why is an airfoil shaped like a teardrop?
+Locking car with key fob
+Comparing 2 distinct sieve of Eratosthenes algorithms in Java
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+site design / logo © 2021 Stack Exchange Inc; user contributions 
